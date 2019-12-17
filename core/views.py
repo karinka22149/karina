@@ -69,10 +69,53 @@ class RegisterView(View):
             last_name=request.POST['last_name'],
         )
         user = authenticate(request, username=request.POST['username'], password=request.POST['password'])
+        user.email = request.POST['email']
+        user.save()
         if user is not None:
             login(request, user)
             return redirect('home')
         return redirect('register')
 
+class LogoutView(View):
+    '''
+    Вьюха выхода.
+    '''
+    def get(self, request, *args, **kwargs):
+        logout(request)
+        return redirect('login')
+
 class HomeView(View):
-    pass
+    template_name = 'home.html'
+    
+    def get(self, request, *args, **kwargs):
+        return render(request, self.template_name)
+    
+    def post(self, request, *args, **kwargs):
+        return render(request, self.template_name)
+    
+class StaffView(View):
+    template_name = 'staff.html'
+    
+    def get(self, request, *args, **kwargs):
+        return render(request, self.template_name)
+    
+    def post(self, request, *args, **kwargs):
+        return render(request, self.template_name)
+
+class ReciepeView(View):
+    template_name = 'reciepe.html'
+    
+    def get(self, request, *args, **kwargs):
+        return render(request, self.template_name)
+    
+    def post(self, request, *args, **kwargs):
+        return render(request, self.template_name)
+
+class ProductView(View):
+    template_name = 'product.html'
+    
+    def get(self, request, *args, **kwargs):
+        return render(request, self.template_name)
+    
+    def post(self, request, *args, **kwargs):
+        return render(request, self.template_name)

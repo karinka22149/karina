@@ -123,4 +123,7 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/2.2/howto/static-files/
 
 STATIC_URL = '/static/'
-#ssh -fNq -L 5555:localhost:5432 user@domain.com
+TEMPLATES_DIRS = (os.path.join(BASE_DIR, 'templates'))
+STATIC_ROOT = os.path.join(BASE_DIR, 'static/')
+MEDIA_URL = '/media/'
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media/')

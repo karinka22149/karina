@@ -10,10 +10,20 @@ class LoginForm(forms.ModelForm):
         model = User
         fields = ['username', 'password']
         
+    def __init__(self, *args, **kwargs):
+        super(LoginForm, self).__init__(*args, **kwargs)
+        for field_name, field in self.fields.items():
+            field.widget.attrs['class'] = 'form-control'
+
 class RegisterForm(forms.ModelForm):
     username = forms.CharField(max_length=50, label='Логин')
     password = forms.CharField(widget=forms.PasswordInput, label='Пароль')
-    
+
     class Meta:
         model = User
-        fields = ['username', 'password', 'first_name', 'last_name']
+        fields = ['username', 'password', 'email', 'first_name', 'last_name']
+        
+    def __init__(self, *args, **kwargs):
+        super(RegisterForm, self).__init__(*args, **kwargs)
+        for field_name, field in self.fields.items():
+            field.widget.attrs['class'] = 'form-control'
