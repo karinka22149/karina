@@ -102,7 +102,8 @@ class HomeView(View):
         context = {
             'form': form
         }
-        return render(request, self.template_name, context)    
+        return render(request, self.template_name, context)
+
 class StaffView(View):
     template_name = 'staff.html'
     
