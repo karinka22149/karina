@@ -86,13 +86,23 @@ class LogoutView(View):
 
 class HomeView(View):
     template_name = 'home.html'
+    form_class = RealizationForm
     
     def get(self, request, *args, **kwargs):
-        return render(request, self.template_name)
+        form = self.form_class
+        context = {
+            'form': form
+        }
+        return render(request, self.template_name, context)
     
     def post(self, request, *args, **kwargs):
-        return render(request, self.template_name)
-    
+        form = self.form_class(request.POST)
+        if form.is_valid():
+            form.save()
+        context = {
+            'form': form
+        }
+        return render(request, self.template_name, context)    
 class StaffView(View):
     template_name = 'staff.html'
     
