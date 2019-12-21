@@ -129,10 +129,14 @@
                 <h5 class="title">Реализация</h5>
               </div>
               <div class="card-body">
-                OMEGALUL
+                  <form method="post">
+                      {% csrf_token %}
+                        {{ form }}
+                        <button type="submit" class="btn btn-primary">sohranit</button>
+                  </form>
               </div>
               <div class="card-footer">
-                KEKEKEKEEK
+                KEKEKEKEEKs
               </div>
             </div>
           </div>

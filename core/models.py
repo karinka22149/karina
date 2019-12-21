@@ -49,7 +49,7 @@ class Realization(models.Model):
         verbose_name_plural = 'Реализации'
 
     def __str__(self):
-        return self.check_number
+        return f"{self.check_number}"
     
 class Service(models.Model):
     name = models.CharField(max_length=30, verbose_name='Наименование')
@@ -110,7 +110,7 @@ class RecipeCount(models.Model):
         verbose_name_plural = 'Объем рецептур'
 
     def __str__(self):
-        return self.volume
+        return str(self.volume)
 
 class Product(models.Model):
     name = models.CharField(max_length=25, verbose_name='Наименование')
@@ -135,7 +135,7 @@ class ProductCount(models.Model):
         verbose_name_plural = 'Количество продуктов'
 
     def __str__(self):
-        return self.product
+        return str(self.count)
 
 class Dealer(models.Model):
     name = models.CharField(max_length=25, verbose_name='Наименование')
