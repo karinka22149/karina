@@ -35,13 +35,7 @@ class RealizationForm(forms.ModelForm):
         fields = '__all__'
 
 class StaffForm(forms.ModelForm):
-    FIO = forms.ModelChoiceField(queryset=Staff.objects.all(), widget=forms.HiddenInput)
-    table_number = forms.ModelChoiceField(queryset=Staff.objects.all(), widget=forms.HiddenInput)
-    telephone_number = forms.ModelChoiceField(queryset=Staff.objects.all(), widget=forms.HiddenInput)
-    clothing_size = forms.ModelChoiceField(queryset=Staff.objects.all(), widget=forms.HiddenInput)
-    position = forms.ModelChoiceField(queryset=Staff.objects.all(), widget=forms.HiddenInput)
-    user = forms.ModelChoiceField(queryset=Staff.objects.all(), widget=forms.HiddenInput)
 
     class Meta:
-        model = StudentAnswer
-        fields = ['FIO', 'table_number', 'telephone_number', 'clothing_size','position','user']
+        model = Staff
+        fields = '__all__'
