@@ -118,10 +118,52 @@
             </div>
           </div>
         </div>
-      </div>
       <!-- End Navbar -->
-    </div>
+  
   </div>
+      <div class="content">
+        <div class="row">
+          <div class="col-md-12">
+            <div class="card ">
+              <div class="card-header">
+                <h4 class="card-title"> Продукты</h4>
+              </div>
+              <div class="card-body">
+                <div class="table-responsive">
+                  <table class="table tablesorter " id="">
+                    <thead class=" text-primary">
+
+                <h3>Продукты</h3>
+            </div>
+            <table class="table">
+                <thead class="thead-dark">
+                    <tr>
+                        <th>Наименование</th>
+                        <th>Срок годности</th>
+                        <th>Цена</th>
+                        <th>Количество</th>
+                        <th>Поставщик</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for p in product %}
+                    <tr>
+                        <td>{{ p.name }}</td>
+                        <td>{{ p.expiration_date }}</td>
+                        <td>{{ p.price }}</td>
+                        <td>{{ p.count }}</td>
+                        <td>{{ p.dealer}}</td>
+                    </tr>
+                    {% endfor %}
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+    </div>
+
   <div class="fixed-plugin">
     <div class="dropdown show-dropdown">
       <a href="#" data-toggle="dropdown">

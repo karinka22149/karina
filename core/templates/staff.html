@@ -118,41 +118,59 @@
             </div>
           </div>
         </div>
-      </div>
+
       <!-- End Navbar -->
-    </div>
+
   </div>
-  <div class="container">
-        <div class="row text-center">
-            <div class="container text-center">
+      <div class="content">
+        <div class="row">
+          <div class="col-md-12">
+            <div class="card ">
+              <div class="card-header">
+                <h4 class="card-title"> Simple Table</h4>
+              </div>
+              <div class="card-body">
+                <form method="post">
+                      {% csrf_token %}
+                        {{ form }}
+                        <button type="submit" class="btn btn-primary">сохранить</button>
+                  </form>
+                <div class="table-responsive">
+                  <table class="table tablesorter " id="">
+                    <thead class=" text-primary">
+
                 <h3>Сотрудники</h3>
             </div>
             <table class="table">
                 <thead class="thead-dark">
                     <tr>
-                        <th scope="col">ФИО</th>
-                        <th scope="col">Табельный номер</th>
-                        <th scope="col">Телефон</th>
-                        <th scope="col">Рост</th>
-                        <th scope="col">Размер одежды</th>
-                        <th scope="col">Должность</th>
-                        <th scope="col">Пользователь</th>
+                        <th>ФИО</th>
+                        <th>Табельный номер</th>
+                        <th>Телефон</th>
+                        <th>Рост</th>
+                        <th>Размер одежды</th>
+                        <th>Должность</th>
+                        <th>Пользователь</th>
                     </tr>
                 </thead>
                 <tbody>
                     {% for s in staff %}
                     <tr>
-                        <td>{{ staff.get_full_name }}</td>
-                        <td>{{ staff.table_number }}</td>
-                        <td>{{ staff.telephone_number }}</td>
-                        <td>{{ staff.height }}</td>
-                        <td>{{ staff.clothing_size }}</td>
-                        <td>{{ staff.position }}</td>
-                        <td>{{ staff.user }}</td>
+                        <td>{{ s.get_full_name }}</td>
+                        <td>{{ s.table_number }}</td>
+                        <td>{{ s.telephone_number }}</td>
+                        <td>{{ s.height }}</td>
+                        <td>{{ s.clothing_size }}</td>
+                        <td>{{ s.position }}</td>
+                        <td>{{ s.user }}</td>
                     </tr>
                     {% endfor %}
-                </tbody>
-            </table>
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
     </div>
   <div class="fixed-plugin">

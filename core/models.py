@@ -20,7 +20,7 @@ class Staff(models.Model):
     middle_name = models.CharField(max_length=20, verbose_name='Отчество')
     table_number = models.PositiveIntegerField(verbose_name='Табельный номер')
     telephone_number = models.CharField(max_length=12, verbose_name='Телефонный номер')
-    pasport_data = models.TextField(verbose_name='Паспортные данные')
+    pasport_data = models.CharField(max_length=100,verbose_name='Паспортные данные')
     height = models.PositiveIntegerField(verbose_name='Рост')
     clothing_size = models.CharField(max_length=2, verbose_name='Размер одежды')
     position = models.ForeignKey(Position, on_delete=models.CASCADE, blank=True, null=True, verbose_name='Должность')
@@ -135,7 +135,7 @@ class ProductCount(models.Model):
         verbose_name_plural = 'Количество продуктов'
 
     def __str__(self):
-        return str(self.count)
+        return str(self.product)
 
 class Dealer(models.Model):
     name = models.CharField(max_length=25, verbose_name='Наименование')

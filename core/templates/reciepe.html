@@ -118,10 +118,48 @@
             </div>
           </div>
         </div>
-      </div>
       <!-- End Navbar -->
-    </div>
   </div>
+      <div class="content">
+        <div class="row">
+          <div class="col-md-12">
+            <div class="card ">
+              <div class="card-header">
+                <h4 class="card-title"> Simple Table</h4>
+              </div>
+              <div class="card-body">
+                <div class="table-responsive">
+                  <table class="table tablesorter " id="">
+                    <thead class=" text-primary">
+
+                <h3>Рецептуры</h3>
+            </div>
+            <table class="table">
+                <thead class="thead-dark">
+                    <tr>
+                        <th>Название</th>
+                        <th>Кол-во продуктов</th>
+                        <th>Объем</th>
+                        <th>Описание</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for r in recipe %}
+                    <tr>
+                        <td>{{ r.name }}</td>
+                        <td>{{ r.count }}</td>
+                        <td>{{ r.volume }}</td>
+                        <td>{{ r.description }}</td>
+                    </tr>
+                    {% endfor %}
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+    </div>
   <div class="fixed-plugin">
     <div class="dropdown show-dropdown">
       <a href="#" data-toggle="dropdown">

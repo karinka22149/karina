@@ -1974,14 +1974,11 @@ pre code {
 }
 
 .table .thead-dark th {
-  color: #1e1e2f;
-  background-color: #212529;
   border-color: #32383e;
 }
 
 .table .thead-light th {
   color: #525f7f;
-  background-color: #e9ecef;
   border-color: #e3e3e3;
 }
 
@@ -16742,7 +16739,7 @@ hr {
 
 .table>thead>tr>th {
   border-bottom-width: 1px;
-  font-size: 12px;
+  font-size: 14px;
   text-transform: uppercase;
   font-weight: 700;
   border: 0;

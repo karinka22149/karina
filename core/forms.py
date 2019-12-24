@@ -29,13 +29,26 @@ class RegisterForm(forms.ModelForm):
             field.widget.attrs['class'] = 'form-control'
 
 class RealizationForm(forms.ModelForm):
-    
+
     class Meta:
         model = Realization
         fields = '__all__'
+
 
 class StaffForm(forms.ModelForm):
 
     class Meta:
         model = Staff
+        fields = '__all__'
+
+class ProductForm(forms.ModelForm):
+
+    class Meta:
+        model = Product
+        fields = '__all__'
+
+class ReciepeForm(forms.ModelForm):
+
+    class Meta:
+        model = Recipe
         fields = '__all__'

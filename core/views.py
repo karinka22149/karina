@@ -89,9 +89,13 @@ class HomeView(View):
     form_class = RealizationForm
     
     def get(self, request, *args, **kwargs):
+        if request.user.is_anonymous:
+            return redirect('login')
         form = self.form_class
+        realization = Realization.objects.all()
         context = {
-            'form': form
+            'form': form,
+            'realization': realization
         }
         return render(request, self.template_name, context)
     
@@ -109,6 +113,8 @@ class StaffView(View):
     form_class = StaffForm
     
     def get(self, request, *args, **kwargs):
+        if request.user.is_anonymous:
+            return redirect('login')
         form = self.form_class
         staff = Staff.objects.all()
         context = {
@@ -122,24 +128,54 @@ class StaffView(View):
         if form.is_valid():
             form.save()
         context = {
-            'form': form,
+            'form': form
         }
         return render(request, self.template_name)
 
 class ReciepeView(View):
     template_name = 'reciepe.html'
+    form_class = ReciepeForm
     
     def get(self, request, *args, **kwargs):
-        return render(request, self.template_name)
+        if request.user.is_anonymous:
+            return redirect('login')
+        form = self.form_class
+        recipe = Recipe.objects.all()
+        context = {
+            'form': form,
+            'recipe' : recipe
+        }
+        return render(request, self.template_name,context)
     
     def post(self, request, *args, **kwargs):
+        form = self.form_class(request.POST)
+        if form.is_valid():
+            form.save()
+        context = {
+            'form': form,
+        }
         return render(request, self.template_name)
 
 class ProductView(View):
     template_name = 'product.html'
+    form_class = ProductForm
     
     def get(self, request, *args, **kwargs):
-        return render(request, self.template_name)
+        if request.user.is_anonymous:
+            return redirect('login')
+        form = self.form_class
+        product = Product.objects.all()
+        context = {
+            'form': form,
+            'product' : product
+        }
+        return render(request, self.template_name, context)
     
     def post(self, request, *args, **kwargs):
+        form = self.form_class(request.POST)
+        if form.is_valid():
+            form.save()
+        context = {
+            'form': form,
+        }
         return render(request, self.template_name)
