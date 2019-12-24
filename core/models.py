@@ -38,7 +38,7 @@ class Staff(models.Model):
         return self.get_full_name()
 
 class Realization(models.Model):
-    service = models.ForeignKey('Service', on_delete=models.CASCADE, blank=True, null=True, verbose_name='Услуга')
+    service = models.ForeignKey('Service', on_delete=models.CASCADE, blank=True, null=True, verbose_name='')
     check_number = models.PositiveIntegerField(unique=True, verbose_name='Номер чека')
     staff = models.ForeignKey(Staff, on_delete=models.CASCADE, blank=True, null=True, verbose_name='Сотрудник')
     date = models.DateTimeField(auto_now_add=True, verbose_name='Время и дата')
