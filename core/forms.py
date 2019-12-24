@@ -33,3 +33,6 @@ class RealizationForm(forms.ModelForm):
     class Meta:
         model = Realization
         fields = '__all__'
+
+class StaffForm(forms.ModelForm):
+    FIO=forms.ModelChoiceField(queryset=Staff.objects.all(), widget=forms.HiddenInput)

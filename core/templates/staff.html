@@ -122,6 +122,39 @@
       <!-- End Navbar -->
     </div>
   </div>
+  <div class="container">
+        <div class="row text-center">
+            <div class="container text-center">
+                <h3>Сотрудники</h3>
+            </div>
+            <table class="table">
+                <thead class="thead-dark">
+                    <tr>
+                        <th scope="col">ФИО</th>
+                        <th scope="col">Табельный номер</th>
+                        <th scope="col">Телефон</th>
+                        <th scope="col">Рост</th>
+                        <th scope="col">Размер одежды</th>
+                        <th scope="col">Должность</th>
+                        <th scope="col">Пользователь</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for staff in staff %}
+                    <tr>
+                        <td>{{ staff.get_full_name() }}</td>
+                        <td>{{ staff.table_number }}</td>
+                        <td>{{ staff.telephone_number }}</td>
+                        <td>{{ staff.height }}</td>
+                        <td>{{ staff.clothing_size }}</td>
+                        <td>{{ staff.position }}</td>
+                        <td>{{ staff.user }}</td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
   <div class="fixed-plugin">
     <div class="dropdown show-dropdown">
       <a href="#" data-toggle="dropdown">
