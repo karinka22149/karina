@@ -9,5 +9,10 @@ urlpatterns = [
     path('', HomeView.as_view(), name='home'),
     path('staff/', StaffView.as_view(), name='staff'),
     path('reciepe/', ReciepeView.as_view(), name='reciepe'),
-    path('product/', ProductView.as_view(), name='product')
+    path('product/', ProductView.as_view(), name='product'),
+    
+    path('realizationg/',RealizationgView.as_view(),name='realizationg'),
+    path('staffg/',StaffgView.as_view(),name='staffg'),
+    path('productg/',ProductgView.as_view(),name='productg'),
+    path('recipeg/',RecipegView.as_view(),name='recipeg'),
 ]

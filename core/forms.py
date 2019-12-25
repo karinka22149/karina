@@ -52,3 +52,29 @@ class ReciepeForm(forms.ModelForm):
     class Meta:
         model = Recipe
         fields = '__all__'
+
+"""ЧАСТЬ ГЛЕБА!!!"""
+# 
+class RealizationgForm(forms.ModelForm):
+
+    class Meta:
+        model = Realization
+        fields = '__all__'
+
+class StaffgForm(forms.ModelForm):
+
+    class Meta:
+        model = Staff
+        fields = '__all__'
+
+class ProductgForm(forms.ModelForm):
+
+    class Meta:
+        model = Product
+        fields = '__all__'
+
+class ReciepegForm(forms.ModelForm):
+
+    class Meta:
+        model = Recipe
+        fields = '__all__'

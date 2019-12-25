@@ -77,10 +77,10 @@ WSGI_APPLICATION = 'kofe.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': 'd8f28h43qa73qg',
-        'USER' : 'svxseytbeuixjm',
-        'PASSWORD' : '6a57b834acdf0a001f55443fd16ee31a0b0c13ebb81aa4364fd28132b2d63948',
-        'HOST' : 'ec2-79-125-2-142.eu-west-1.compute.amazonaws.com',
+        'NAME': 'django_db',
+        'USER' : 'karina',
+        'PASSWORD' : '123456',
+        'HOST' : '127.0.0.1',
         'PORT' : '5432',
     }
 }

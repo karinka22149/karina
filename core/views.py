@@ -101,10 +101,12 @@ class HomeView(View):
     
     def post(self, request, *args, **kwargs):
         form = self.form_class(request.POST)
+        realization = Realization.objects.all()
         if form.is_valid():
             form.save()
         context = {
-            'form': form
+            'form': form,
+            'realization': realization
         }
         return render(request, self.template_name, context)
 
@@ -125,12 +127,14 @@ class StaffView(View):
     
     def post(self, request, *args, **kwargs):
         form = self.form_class(request.POST)
+        staff = Staff.objects.all()
         if form.is_valid():
             form.save()
         context = {
-            'form': form
+            'form': form,
+            'staff' : staff
         }
-        return render(request, self.template_name)
+        return render(request, self.template_name,context)
 
 class ReciepeView(View):
     template_name = 'reciepe.html'
@@ -179,3 +183,101 @@ class ProductView(View):
             'form': form,
         }
         return render(request, self.template_name)
+
+class RealizationgView(View):
+    template_name = 'realizationg.html'
+    form_class = RealizationgForm
+    
+    def get(self, request, *args, **kwargs):
+        form = self.form_class
+        realization = Realization.objects.all()
+        context = {
+            'form': form,
+            'realization': realization
+        }
+        return render(request, self.template_name, context)
+    
+    def post(self, request, *args, **kwargs):
+        form = self.form_class(request.POST)
+        if form.is_valid():
+            form.save()
+        context = {
+            'form': form
+        }
+        return render(request, self.template_name, context)
+
+class StaffgView(View):
+    template_name = 'staffg.html'
+    form_class = StaffForm
+    
+    def get(self, request, *args, **kwargs):
+        if request.user.is_anonymous:
+            return redirect('login')
+        form = self.form_class
+        staff = Staff.objects.all()
+        context = {
+            'form': form,
+            'staff' : staff
+        }
+        return render(request, self.template_name, context)
+    
+    def post(self, request, *args, **kwargs):
+        form = self.form_class(request.POST)
+        staff = Staff.objects.all()
+        if form.is_valid():
+            form.save()
+        context = {
+            'form': form,
+            'staff' : staff
+        }
+        return render(request, self.template_name,context)
+
+class RecipegView(View):
+    template_name = 'recipeg.html'
+    form_class = ReciepeForm
+    
+    def get(self, request, *args, **kwargs):
+        if request.user.is_anonymous:
+            return redirect('login')
+        form = self.form_class
+        recipe = Recipe.objects.all()
+        context = {
+            'form': form,
+            'recipe' : recipe
+        }
+        return render(request, self.template_name,context)
+    
+    def post(self, request, *args, **kwargs):
+        form = self.form_class(request.POST)
+        if form.is_valid():
+            form.save()
+        context = {
+            'form': form,
+        }
+        return render(request, self.template_name)
+
+class ProductgView(View):
+    template_name = 'productg.html'
+    form_class = ProductForm
+    
+    def get(self, request, *args, **kwargs):
+        if request.user.is_anonymous:
+            return redirect('login')
+        form = self.form_class
+        product = Product.objects.all()
+        context = {
+            'form': form,
+            'product' : product
+        }
+        return render(request, self.template_name, context)
+    
+    def post(self, request, *args, **kwargs):
+        form = self.form_class(request.POST)
+        if form.is_valid():
+            form.save()
+        context = {
+            'form': form,
+        }
+        return render(request, self.template_name)
+
+
