@@ -211,8 +211,6 @@ class StaffgView(View):
     form_class = StaffForm
     
     def get(self, request, *args, **kwargs):
-        if request.user.is_anonymous:
-            return redirect('login')
         form = self.form_class
         staff = Staff.objects.all()
         context = {
@@ -237,8 +235,6 @@ class RecipegView(View):
     form_class = ReciepeForm
     
     def get(self, request, *args, **kwargs):
-        if request.user.is_anonymous:
-            return redirect('login')
         form = self.form_class
         recipe = Recipe.objects.all()
         context = {
@@ -261,8 +257,6 @@ class ProductgView(View):
     form_class = ProductForm
     
     def get(self, request, *args, **kwargs):
-        if request.user.is_anonymous:
-            return redirect('login')
         form = self.form_class
         product = Product.objects.all()
         context = {
